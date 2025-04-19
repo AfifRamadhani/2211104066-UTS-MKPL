@@ -61,12 +61,12 @@ public class Employee {
 		}else if (grade == 2) {
 			monthlySalary = 5000000;
 			if (isForeigner) {
-				monthlySalary = (int) (3000000 * 1.5);
+				monthlySalary = (int) (5000000 * 1.5);
 			}
 		}else if (grade == 3) {
 			monthlySalary = 7000000;
 			if (isForeigner) {
-				monthlySalary = (int) (3000000 * 1.5);
+				monthlySalary = (int) (7000000 * 1.5);
 			}
 		}
 	}
@@ -81,7 +81,7 @@ public class Employee {
 	
 	public void setSpouse(String spouseName, String spouseIdNumber) {
 		this.spouseName = spouseName;
-		this.spouseIdNumber = idNumber;
+		this.spouseIdNumber = spouseIdNumber;
 	}
 	
 	public void addChild(String childName, String childIdNumber) {
@@ -100,6 +100,6 @@ public class Employee {
 			monthWorkingInYear = 12;
 		}
 		
-		return TaxFunction.calculateTax(monthlySalary, otherMonthlyIncome, monthWorkingInYear, annualDeductible, spouseIdNumber.equals(""), childIdNumbers.size());
+		return TaxFunction.calculateTax(monthlySalary, otherMonthlyIncome, monthWorkingInYear, annualDeductible, spouseIdNumber != null && !spouseIdNumber.isEmpty(), childIdNumbers.size());
 	}
 }
